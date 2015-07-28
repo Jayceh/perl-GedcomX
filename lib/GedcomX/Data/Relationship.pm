@@ -1,7 +1,7 @@
 package GedcomX::Data::Relationship;
 use Moo;
 
-## extends Subject
+with 'GedcomX::Data::Role::Subject';
 
 has type =>  (
   # # list of name objects

@@ -1,7 +1,7 @@
 package GedcomX::Data::Person;
 use Moo;
 
-## extends Subject
+with 'GedcomX::Data::Role::Subject';
 
 has names =>  (
   # # list of name objects
