@@ -1,0 +1,18 @@
+# NAME
+
+GedcomX - Implement Data models, and tools for working with GedcomX documents
+
+# VERSION
+
+version 0.001
+
+# AUTHOR
+
+Jason (Jayce^) Hall <jayce@lug-nut.com>
+
+# COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2015 by Jason (Jayce^) Hall.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
