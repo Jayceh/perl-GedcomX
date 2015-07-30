@@ -5,6 +5,7 @@ use Type::Library -base;
 use Types::Standard qw( Bool Enum ArrayRef InstanceOf );
 use GedcomX::Data::Name;
 
+# ABSTRACT: A Person is one of the top elements in an Gedcom record
 
 use Data::Debug;
 
@@ -13,10 +14,10 @@ with 'GedcomX::Data::Role::Subject';
 has names =>  (
   is      => 'ro',
   lazy    => 1,
+  isa    => ArrayRef[InstanceOf['GedcomX::Data::Name']],
   #builder => '_build_names',
 );
 
-  #isa    => ArrayRef[InstanceOf['GedcomX::Data::Name']],
 has gender  => ( is => 'lazy');#, isa => Enum[qw( Male Female Unknown )] );
 has facts   => ( is => 'lazy' );
 has private => ( is => 'lazy', isa => Bool );
