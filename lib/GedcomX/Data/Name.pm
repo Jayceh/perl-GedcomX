@@ -1,8 +1,11 @@
 package GedcomX::Data::Name;
 use Moo;
+use Types::URI -all;
 use GedcomX::Data::NameForm;
 
-has type       => ( is => 'lazy' );
+# ABSTRACT: Name - Base object for names and their broken out parts and facts
+
+has type       => ( is => 'lazy', isa => Uri );
 has name_forms => ( is => 'lazy' );
 has nameForms  => ( is => 'lazy' );
 has date       => ( is => 'lazy' );
