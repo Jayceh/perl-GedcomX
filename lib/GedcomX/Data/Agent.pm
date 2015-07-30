@@ -5,7 +5,7 @@ use Moo;
 
 has id          => ( is => 'lazy' );
 has identifiers => ( is => 'lazy' );
-has name        => ( is => 'lazy' );
+has names       => ( is => 'lazy' );
 has homepage    => ( is => 'lazy' );
 has openid      => ( is => 'lazy' );
 has accounts    => ( is => 'lazy' );
