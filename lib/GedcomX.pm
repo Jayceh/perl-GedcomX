@@ -7,6 +7,7 @@ use Data::Debug;
 use GedcomX::Data::Person;
 use GedcomX::Data::Attribution;
 use GedcomX::Data::Agent;
+use GedcomX::Data::Places;
 
 # ABSTRACT: Implement Data models, and tools for working with GedcomX documents
 
@@ -15,16 +16,17 @@ has attribution         => ( is => 'lazy', coerce => sub { GedcomX::Data::Attrib
 has persons             => ( is => 'lazy' );
 has relationships       => ( is => 'lazy' );
 has source_descriptions => ( is => 'lazy' );
-has agents              => ( 
+has agents              => (
                              is     => 'lazy',
-                             isa    => ArrayRef[InstanceOf['GedcomX::Data::Agent'], 
-                             coerce => sub { [map {GedcomX::Data::Agent->new($_)} @{ $_[0] }] } ); #still a little naive if they don't enter it as a list? what if already an object, does it fire again
-has places              => ( is => 'lazy' );
+                             isa    => ArrayRef[InstanceOf['GedcomX::Data::Agent']], 
+                             coerce => sub { [map {GedcomX::Data::Agent->new($_)} @{ $_[0] }] }
+);
 
+#still a little naive if they don't enter it as a list? what if already an object, does it fire again
 
-sub _build_agents {
-  my $self = shift;
-  return [];
-}
+has places              => ( is => 'lazy',
+                             isa    => ArrayRef[InstanceOf['GedcomX::Data::Places']], 
+                             coerce => sub { [map {GedcomX::Data::Places->new($_)} @{ $_[0] }] } ); #still a little naive if they don't enter it as a list? what if already an object, does it fire again
+
 
 1;
