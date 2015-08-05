@@ -10,7 +10,7 @@ use Data::Debug;
 use_ok ('GedcomX::Data::Person');
 
 my $example = from_json(slurp('t/example.json'));
-
+#-----------------------
 my $george = GedcomX::Data::Person->new($example->{'persons'}->[0]);
 isa_ok( $george, 'GedcomX::Data::Person', 'New object is of the correct class');
 
