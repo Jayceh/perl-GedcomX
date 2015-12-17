@@ -6,6 +6,14 @@ GedcomX - Implement Data models, and tools for working with GedcomX documents
 
 version 0.001
 
+# SYNOPSIS
+
+my $gedcom = GedcomX->new($gedom\_data);
+
+# DESCRIPTION
+
+A collection of modules providing a clean interface for dealing with GedcomX data.
+
 # AUTHOR
 
 Jason (Jayce^) Hall <jayce@lug-nut.com>

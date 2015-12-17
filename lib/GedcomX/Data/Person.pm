@@ -24,7 +24,7 @@ has private => ( is => 'lazy', isa => Bool );
 
 sub BUILDARGS {
    my ( $class, @args ) = @_;
-   my @names = map { GedcomX::Data::Name->new($_) } @{$args[0]->{'names'}};
+   my @names = map {debug $_; GedcomX::Data::Name->new($_) } @{$args[0]->{'names'}};
    $args[0]->{'names'} = \@names;
    return $args[0];
 }

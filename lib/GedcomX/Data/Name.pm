@@ -5,7 +5,7 @@ use GedcomX::Data::NameForm;
 
 # ABSTRACT: Name - Base object for names and their broken out parts and facts
 
-has type       => ( is => 'lazy', isa => Uri );
+has type       => ( is => 'lazy', isa => Uri, coerce => 1);
 has name_forms => ( is => 'lazy' );
 has nameForms  => ( is => 'lazy' );
 has date       => ( is => 'lazy' );

@@ -14,6 +14,7 @@ use GedcomX::Data::SourceDescription;
 # ABSTRACT: Implement Data models, and tools for working with GedcomX documents
 
 # SYNOPSIS: Follow specs at https://github.com/FamilySearch/gedcomx/tree/master/specifications
+
 has attribution         => ( is => 'lazy', coerce => sub { GedcomX::Data::Attribution->new($_[0]); } );
 has persons             => ( is => 'lazy',
                              isa    => ArrayRef[InstanceOf['GedcomX::Data::Person']], 
@@ -39,5 +40,20 @@ has places              => ( is => 'lazy',
                              isa    => ArrayRef[InstanceOf['GedcomX::Data::Places']], 
                              coerce => sub { [map {GedcomX::Data::Places->new($_)} @{ $_[0] }] } ); #still a little naive if they don't enter it as a list? what if already an object, does it fire again
 
+sub _build_source_descriptions {
+  my $self = shift;
+  return [ map { GedcomX::Data::SourceDescription->new($_) } @{$self->sourceDescriptions}];
+}
+
 
 1;
+
+__END__
+
+=head1 SYNOPSIS
+
+my $gedcom = GedcomX->new($gedom_data);
+
+=head1 DESCRIPTION
+
+A collection of modules providing a clean interface for dealing with GedcomX data.
