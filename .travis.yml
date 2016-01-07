@@ -2,7 +2,6 @@ sudo: false
 language: perl
 perl:
    - 'blead'
-   - '5.22'
    - '5.20'
    - '5.18'
    - '5.16'
@@ -11,9 +10,10 @@ perl:
    - '5.10'
    - '5.8'
 matrix:
-  allow_failures:
-    - perl: 'blead'
-  fast_finish: true
+   allow_failures:
+      - perl: 'blead'
+      - perl: '5.8'
+   fast_finish: true
 before_install:
    - git config --global user.name "TravisCI"
    - git config --global user.email $HOSTNAME":not-for-mail@travis-ci.org"
@@ -23,6 +23,3 @@ install:
    - "dzil listdeps   --author --missing | grep -vP '[^\\w:]' | cpanm --verbose"
 script:
    - dzil smoke --release --author
-env:
-  global:
-    secure: DJu3fpFTcp35GgMUN0ByIKEGIX8/J4/5Ybu0dE7kOCsY2To8Vq/c147FvLmnc2dHUQ2Buh1wnJnrqADF2CaC84Doia7V/9Si4SM6ximCswZZKD5+ccALgxpJpUO5amIe72RlUvjAkJ3SA6enBU3dBZxL6TtwS6p1It9w5FLKvzK56bUJ06Ry6TfzT2jdbku/Uh/ws9VvUXo38MSlQiAAswkrDVb9Q1/sVy7LZVt7IPr4hxqJjeoYBGbV+urHjIReUC0Ou7vp7ZyRRVxh1zIpvKn7HHOTCr5fvZMBxzww6vgFfFZ1JQP9l6yhBSvriGP8M1i/om48ccQxLbfclytA6Lgd3tk2ObrVRPZSLib1XHxw3fFgkuO6wz1Ic91wOpy7vC1Ji11M9jq8d0z3ifY12WOJAMTRqMB+arYnxfSlNlLhIALJw1ZG/d+SBE8sMWR2/SluilCgfajxdz4MD95l0dLL2DWaCWSdGUrvIQJoqqdGjDPrfccoS3voE30zor6ICeL+0VcJZ1DDevYaXQIe8C45GEOK6nxWiERkJA4VYJp+69BKIrKJFqKNAUAsVC6g9oAw40obsCo6/IfUgC6ckaSBgR3iEIHAtbqjrhS6QJU36V5KdD6MM0A2U6ti0Vbhnxp5hhRpmZQ84AeU5GY1Fiy7EFCDYFCXfykDpfdWgoc=
